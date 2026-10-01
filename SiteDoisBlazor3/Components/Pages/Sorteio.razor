@@ -1,0 +1,16 @@
+@page "/sorteio"
+@rendermode InteractiveServer
+
+<h1>SORTEIO!</h1>
+<button @onclick="SorteiaNumero">CLIQUE AQUI PARA SORTEAR NUMERO DE 1 A 100</button>
+<h2>O NUMERO SORTEADO É: @numeroSorteado</h2>
+
+@code {
+    private int? numeroSorteado;
+    private System.Random Gerador = new System.Random();
+
+    private void SorteiaNumero()
+    {
+        numeroSorteado = Gerador.Next(1, 100);
+    }
+}
