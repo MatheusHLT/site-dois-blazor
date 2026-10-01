@@ -1,0 +1,37 @@
+@page "/media"
+@rendermode InteractiveServer
+
+<h1>MEDIA DE ALUNO</h1>
+
+Digite a nota 1: <input type="number" @bind="nota1">
+<br>
+Digite a nota 2: <input type="number" @bind="nota2">
+<br>
+<br>
+<p><button @onclick="CalcularMedia">Clieuqe Para Calcular Media</button></p>
+
+A media do aluno foi de: @media <br> @situação
+@code {
+    private double nota1;
+    private double nota2;
+    private double? media;
+    private string situação = "";
+
+    private void CalcularMedia()
+    {
+        media = (nota1 + nota2) / 2;
+        
+        if (nota1 < 0 || nota2 < 0)
+        {
+            situação = "DIGITE NOTAS VÁLIDAS!";
+        }
+        else if (media >= 7.0)
+        {
+            situação = "Aprovado!";
+        }
+        else
+        {
+            situação = "Reprovado!";
+        }
+    }
+}
