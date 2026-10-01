@@ -1,0 +1,19 @@
+@page "/conversor"
+@rendermode InteractiveServer
+
+<h1>CONVERSOR DE TEMPERATUA</h1>
+
+Digite seu número em celsius:
+<input type="number" @bind="celsius" />
+<button @onclick="Converter">Clique aqui para converter</button> <p></p>
+Seu número em fahrenheint é: @fahrenheit
+
+@code {
+    private double celsius;
+    private double fahrenheit;
+
+    private void Converter()
+    {
+        fahrenheit = ((celsius * 9 / 5) + 32);
+    }
+}
